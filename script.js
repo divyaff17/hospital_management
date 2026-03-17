@@ -1,37 +1,46 @@
 'use strict';
 
-// quick debug switch (leave false for normal)
-const DEBUG_NAV = false;
-
 const navLinks = document.querySelectorAll('#navMenu a');
 const pages = document.querySelectorAll('.page-section');
+let temp = []; // might use later
 
-function setActiveNav(hash) {
-  navLinks.forEach(function(link) { link.classList.remove('is-active'); });
-  const active = document.querySelector(`#navMenu a[href="${hash}"]`);
-  if (active) active.classList.add('is-active');
-}
+function goPage(pageId) {
+  pages.forEach(function(page) {
+    page.classList.add('hidden-section');
+  });
 
-function navigateTo(pageId) {
-  pages.forEach(function(page) { page.classList.add('hidden-section'); });
+  navLinks.forEach(function(link) {
+    link.classList.remove('is-active');
+  });
 
-  const targetPage = document.getElementById(pageId);
-  if (targetPage) {
-    targetPage.classList.remove('hidden-section');
-    if (DEBUG_NAV) console.log('navigating to', pageId);
+  const target = document.getElementById(pageId);
+  if (target) {
+    target.classList.remove('hidden-section');
+
+    const active = document.querySelector('#navMenu a[href="#' + pageId + '"]');
+    if (active) active.classList.add('is-active');
+
+    // console.log('navigating'); // used during testing
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    // not sure why this happens sometimes but ok
+    console.log('page not found:', pageId);
   }
 }
 
 navLinks.forEach(function(link) {
   link.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
-
+    // handling click
     e.preventDefault();
+
+    console.log('clicked nav');
+
+    let href = this.getAttribute('href');
+    if (!href) return;
+    if (!href.startsWith('#')) return;
+
     const pageId = href.substring(1);
-    navigateTo(pageId);
-    setActiveNav(href);
+    goPage(pageId);
     window.location.hash = href;
   });
 });
@@ -40,30 +49,21 @@ window.addEventListener('hashchange', function() {
   const hash = window.location.hash || '#home';
   const pageId = hash.substring(1);
   if (document.getElementById(pageId)) {
-    navigateTo(pageId);
-    setActiveNav(hash);
+    goPage(pageId);
   }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
   const hash = window.location.hash || '#home';
   const pageId = hash.substring(1);
-  navigateTo(document.getElementById(pageId) ? pageId : 'home');
-  setActiveNav(document.getElementById(pageId) ? hash : '#home');
+  goPage(document.getElementById(pageId) ? pageId : 'home');
 });
 
-const appointmentForm = document.getElementById('appointmentForm');
-const successMessage = document.getElementById('successMessage');
+const form1 = document.getElementById('appointmentForm');
+const msgBox = document.getElementById('successMessage');
 
-function saveToLocalStorage(data) {
-  let list = JSON.parse(localStorage.getItem('hospitalAppointments')) || [];
-  if (!list) list = [];
-  list.push(data);
-  localStorage.setItem('hospitalAppointments', JSON.stringify(list));
-}
-
-if (appointmentForm) {
-  appointmentForm.addEventListener('submit', function(e) {
+if (form1) {
+  form1.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const name = document.getElementById('patientName').value;
@@ -72,7 +72,29 @@ if (appointmentForm) {
     const date = document.getElementById('appointmentDate').value;
     const message = document.getElementById('patientMessage').value;
 
-    saveToLocalStorage({
+    if (!name) {
+      alert('Please enter your name');
+      return;
+    }
+    if (name === '') {
+      return;
+    }
+
+    let list = [];
+    let raw = localStorage.getItem('hospitalAppointments');
+    if (raw) {
+      try {
+        list = JSON.parse(raw);
+      } catch (err) {
+        console.log('storage parse issue', err);
+        list = [];
+      }
+    }
+
+    // again checking just in case
+    if (!list) list = [];
+
+    list.push({
       id: Date.now(),
       name: name,
       phone: phone,
@@ -81,11 +103,15 @@ if (appointmentForm) {
       message: message
     });
 
-    if (successMessage) {
-      successMessage.classList.remove('hidden');
-      setTimeout(function() { successMessage.classList.add('hidden'); }, 4000);
+    localStorage.setItem('hospitalAppointments', JSON.stringify(list));
+
+    if (msgBox) {
+      msgBox.classList.remove('hidden');
+      setTimeout(function() {
+        msgBox.classList.add('hidden');
+      }, 3500);
     }
 
-    appointmentForm.reset();
+    form1.reset();
   });
 }

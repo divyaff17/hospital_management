@@ -27,14 +27,9 @@ a {
 }
 
 :root {
-    --primary-blue: #0056b3;
-    --dark-blue: #003366;
-    --accent-green: #2ecc71;
-    --text-dark: #333;
-    --text-light: #777;
+    --main-blue: #0056b3;
     --bg-light: #f8fbff;
     --white: #ffffff;
-    --border-color: #eaeaea;
 }
 
 .bg-light {
@@ -70,7 +65,7 @@ h1, h2, h3, h4 {
 .heading-line {
     width: 60px;
     height: 3px;
-    background-color: var(--accent-green);
+    background-color: #2ecc71;
     margin: 15px 0 25px 0;
     border-radius: 2px;
 }
@@ -88,7 +83,7 @@ h1, h2, h3, h4 {
 }
 
 .section-header p {
-    color: var(--text-light);
+    color: #777;
 }
 
 .btn {
@@ -105,7 +100,7 @@ h1, h2, h3, h4 {
 
 .btn-primary {
     background-color: #0056b3;
-    color: var(--white);
+    color: #fff;
 }
 
 .btn-primary:hover {
@@ -116,13 +111,13 @@ h1, h2, h3, h4 {
 
 .btn-outline {
     background-color: transparent;
-    border-color: var(--white);
-    color: var(--white);
+    border-color: #fff;
+    color: #fff;
 }
 
 .btn-outline:hover {
-    background-color: var(--white);
-    color: var(--primary-blue);
+    background-color: #fff;
+    color: #0056b3;
 }
 
 .navbar {
@@ -147,7 +142,7 @@ h1, h2, h3, h4 {
 .logo {
     font-size: 28px;
     font-weight: 800;
-    color: var(--dark-blue);
+    color: #003366;
     letter-spacing: -0.5px;
     display: flex;
     align-items: center;
@@ -159,7 +154,7 @@ h1, h2, h3, h4 {
 }
 
 .logo span {
-    color: var(--primary-blue);
+    color: #0056b3;
     font-weight: 400;
 }
 
@@ -173,14 +168,14 @@ nav ul {
 nav ul li a {
     font-weight: 600;
     font-size: 15px;
-    color: var(--text-dark);
+    color: #333;
     position: relative;
     padding: 5px 0;
     transition: color 0.3s ease;
 }
 
 #navMenu a.is-active {
-    color: var(--primary-blue);
+    color: #0056b3;
 }
 
 #navMenu a.is-active::after {
@@ -194,12 +189,12 @@ nav ul li a::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-blue);
+    background: #0056b3;
     transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: var(--primary-blue);
+    color: #0056b3;
 }
 
 nav ul li a:hover::after {
@@ -207,7 +202,7 @@ nav ul li a:hover::after {
 }
 
 .btn-nav {
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    background: linear-gradient(135deg, #0056b3, #003366);
     color: var(--white) !important;
     padding: 12px 25px !important;
     border-radius: 50px !important;
@@ -218,7 +213,7 @@ nav ul li a:hover::after {
 .btn-nav:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
-    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    background: linear-gradient(135deg, #003366, #0056b3);
 }
 
 .btn-nav::after {
@@ -230,8 +225,8 @@ nav ul li a:hover::after {
     background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    height: 85vh;
-    min-height: 600px;
+    height: 80vh;
+    min-height: 560px;
     display: flex;
     align-items: center;
 }
@@ -239,13 +234,13 @@ nav ul li a:hover::after {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to right, rgba(0, 51, 102, 0.9) 0%, rgba(0, 86, 179, 0.5) 100%);
+    background: rgba(0, 51, 102, 0.75);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    color: var(--white);
+    color: #fff;
     max-width: 980px;
     margin: 0 auto;
     text-align: center;
@@ -256,7 +251,7 @@ nav ul li a:hover::after {
 .hero-content h1 {
     font-size: 54px;
     font-weight: 700;
-    color: var(--white);
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -284,27 +279,25 @@ nav ul li a:hover::after {
 }
 
 .hero .hero-buttons .btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue), #1a7dff);
+    background: #0056b3;
     border-color: rgba(255, 255, 255, 0.18);
 }
 
 .hero .hero-buttons .btn-primary:hover {
-    background: linear-gradient(135deg, #1a7dff, var(--primary-blue));
+    background: #0a4aa0;
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
 .hero .hero-buttons .btn-outline {
     background: rgba(255, 255, 255, 0.10);
     border-color: rgba(255, 255, 255, 0.45);
-    color: var(--white);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
 }
 
 .hero .hero-buttons .btn-outline:hover {
     background: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.75);
-    color: var(--white);
+    color: #fff;
 }
 
 .hero .hero-buttons .btn:focus-visible {
@@ -318,11 +311,11 @@ nav ul li a:hover::after {
 }
 
 .card {
-    background: var(--white);
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eaeaea;
     overflow: hidden;
 }
 
@@ -351,7 +344,7 @@ nav ul li a:hover::after {
 }
 
 .about-text p {
-    color: var(--text-light);
+    color: #777;
     margin-bottom: 15px;
 }
 
@@ -363,29 +356,29 @@ nav ul li a:hover::after {
 .about-features li {
     margin-bottom: 12px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: #333;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .check {
-    color: var(--accent-green);
+    color: #2ecc71;
     font-size: 18px;
 }
 
 .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.service-card {
+.serviceBox {
     padding: 40px 30px;
     text-align: left;
     border-bottom: 4px solid transparent;
 }
 
-.service-card:hover {
-    border-bottom-color: var(--primary-blue);
+.serviceBox:hover {
+    border-bottom-color: #0056b3;
 }
 
 .icon-box {
@@ -393,13 +386,13 @@ nav ul li a:hover::after {
     margin-bottom: 20px;
 }
 
-.service-card h3 {
+.serviceBox h3 {
     margin-bottom: 15px;
     font-size: 22px;
 }
 
-.service-card p {
-    color: var(--text-light);
+.serviceBox p {
+    color: #777;
 }
 
 .doctors-grid {
@@ -419,7 +412,7 @@ nav ul li a:hover::after {
     transition: transform 0.5s;
 }
 
-.doctor-card:hover .doctor-img img {
+.docCard:hover .doctor-img img {
     transform: scale(1.05);
 }
 
@@ -430,14 +423,14 @@ nav ul li a:hover::after {
 
 .specialty {
     display: block;
-    color: var(--primary-blue);
+    color: #0056b3;
     font-weight: 600;
     margin-bottom: 10px;
     font-size: 14px;
 }
 
 .doctor-info p {
-    color: var(--text-light);
+    color: #777;
     font-size: 14px;
 }
 
@@ -470,11 +463,11 @@ nav ul li a:hover::after {
     right: 0;
     background: linear-gradient(to top, rgba(0,51,102,0.9), transparent);
     padding: 30px 20px 20px;
-    color: var(--white);
+    color: #fff;
 }
 
 .facility-content h3 {
-    color: var(--white);
+    color: #fff;
     margin-bottom: 5px;
 }
 
@@ -485,7 +478,7 @@ nav ul li a:hover::after {
 
 .appointment-wrapper {
     display: flex;
-    background: var(--white);
+    background: #fff;
     border-radius: 12px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     overflow: hidden;
@@ -507,7 +500,7 @@ nav ul li a:hover::after {
 }
 
 .form-desc {
-    color: var(--text-light);
+    color: #777;
     margin-bottom: 30px;
 }
 
@@ -530,7 +523,7 @@ nav ul li a:hover::after {
     margin-bottom: 8px;
     font-weight: 600;
     font-size: 14px;
-    color: var(--dark-blue);
+    color: #003366;
 }
 
 .modern-form input, 
@@ -538,11 +531,11 @@ nav ul li a:hover::after {
 .modern-form textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #eaeaea;
     border-radius: 4px;
     font-family: inherit;
     font-size: 15px;
-    color: var(--text-dark);
+    color: #333;
     background-color: #fafafa;
     transition: border-color 0.3s;
 }
@@ -551,8 +544,8 @@ nav ul li a:hover::after {
 .modern-form select:focus, 
 .modern-form textarea:focus {
     outline: none;
-    border-color: var(--primary-blue);
-    background-color: var(--white);
+    border-color: #0056b3;
+    background-color: #fff;
 }
 
 .btn-submit {
@@ -592,13 +585,13 @@ nav ul li a:hover::after {
 
 .review-text {
     font-style: italic;
-    color: var(--text-light);
+    color: #777;
     margin-bottom: 20px;
     font-size: 15px;
 }
 
 .patient-name {
-    color: var(--dark-blue);
+    color: #003366;
     font-size: 16px;
 }
 
@@ -638,7 +631,7 @@ nav ul li a:hover::after {
 }
 
 .info-item p {
-    color: var(--text-light);
+    color: #777;
 }
 
 .footer {
@@ -836,6 +829,10 @@ nav ul li a:hover::after {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -857,6 +854,10 @@ nav ul li a:hover::after {
     }
     
     .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
         grid-template-columns: 1fr;
     }
 }
