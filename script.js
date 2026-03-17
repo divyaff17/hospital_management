@@ -1,7 +1,8 @@
-// Simple SPA routing + appointment booking for this landing page
 'use strict';
 
-// ----- Navigation (single-page sections) -----
+// quick debug switch (leave false for normal)
+const DEBUG_NAV = false;
+
 const navLinks = document.querySelectorAll('#navMenu a');
 const pages = document.querySelectorAll('.page-section');
 
@@ -17,6 +18,7 @@ function navigateTo(pageId) {
   const targetPage = document.getElementById(pageId);
   if (targetPage) {
     targetPage.classList.remove('hidden-section');
+    if (DEBUG_NAV) console.log('navigating to', pageId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
@@ -50,12 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
   setActiveNav(document.getElementById(pageId) ? hash : '#home');
 });
 
-// ----- Appointment form (saves to LocalStorage) -----
 const appointmentForm = document.getElementById('appointmentForm');
 const successMessage = document.getElementById('successMessage');
 
 function saveToLocalStorage(data) {
-  const list = JSON.parse(localStorage.getItem('hospitalAppointments')) || [];
+  let list = JSON.parse(localStorage.getItem('hospitalAppointments')) || [];
+  if (!list) list = [];
   list.push(data);
   localStorage.setItem('hospitalAppointments', JSON.stringify(list));
 }

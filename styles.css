@@ -1,4 +1,3 @@
-/* ===== BASE & RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +26,6 @@ a {
     color: inherit;
 }
 
-/* ===== VARIABLES ===== */
 :root {
     --primary-blue: #0056b3;
     --dark-blue: #003366;
@@ -44,7 +42,7 @@ a {
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 78px 0;
 }
 
 .container {
@@ -53,16 +51,15 @@ a {
     padding: 0 20px;
 }
 
-/* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
-    color: var(--dark-blue);
+    color: #003366;
     font-weight: 600;
     line-height: 1.3;
 }
 
 .subtitle {
     display: inline-block;
-    color: var(--primary-blue);
+    color: #0056b3;
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
@@ -94,7 +91,6 @@ h1, h2, h3, h4 {
     color: var(--text-light);
 }
 
-/* ===== BUTTONS ===== */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -108,12 +104,12 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
-    background-color: var(--primary-blue);
+    background-color: #0056b3;
     color: var(--white);
 }
 
 .btn-primary:hover {
-    background-color: var(--dark-blue);
+    background-color: #003366;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
 }
@@ -129,11 +125,9 @@ h1, h2, h3, h4 {
     color: var(--primary-blue);
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
     background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* blur looks cool but it was feeling a bit "too perfect" */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
@@ -185,7 +179,6 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-/* active nav item (SPA) */
 #navMenu a.is-active {
     color: var(--primary-blue);
 }
@@ -232,7 +225,6 @@ nav ul li a:hover::after {
     display: none;
 }
 
-/* ===== HERO SECTION ===== */
 .hero {
     position: relative;
     background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop');
@@ -283,7 +275,6 @@ nav ul li a:hover::after {
     flex-wrap: wrap;
 }
 
-/* Make hero buttons clearer on image */
 .hero .hero-buttons .btn {
     min-width: 190px;
     padding: 13px 26px;
@@ -321,7 +312,6 @@ nav ul li a:hover::after {
     outline-offset: 3px;
 }
 
-/* ===== GRIDS & CARDS ===== */
 .grid {
     display: grid;
     gap: 30px;
@@ -341,7 +331,6 @@ nav ul li a:hover::after {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* ===== ABOUT SECTION ===== */
 .about-wrapper {
     display: flex;
     align-items: center;
@@ -385,7 +374,6 @@ nav ul li a:hover::after {
     font-size: 18px;
 }
 
-/* ===== SERVICES SECTION ===== */
 .services-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
@@ -414,7 +402,6 @@ nav ul li a:hover::after {
     color: var(--text-light);
 }
 
-/* ===== DOCTORS SECTION ===== */
 .doctors-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -454,7 +441,6 @@ nav ul li a:hover::after {
     font-size: 14px;
 }
 
-/* ===== FACILITIES SECTION ===== */
 .facilities-grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
@@ -497,7 +483,6 @@ nav ul li a:hover::after {
     opacity: 0.9;
 }
 
-/* ===== APPOINTMENT SECTION ===== */
 .appointment-wrapper {
     display: flex;
     background: var(--white);
@@ -590,7 +575,6 @@ nav ul li a:hover::after {
     display: none !important;
 }
 
-/* ===== TESTIMONIALS SECTION ===== */
 .testimonials-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -618,7 +602,6 @@ nav ul li a:hover::after {
     font-size: 16px;
 }
 
-/* ===== CONTACT SECTION ===== */
 .contact-wrapper {
     display: flex;
     gap: 50px;
@@ -658,7 +641,6 @@ nav ul li a:hover::after {
     color: var(--text-light);
 }
 
-/* ===== FOOTER ===== */
 .footer {
     background: linear-gradient(180deg, #003b73 0%, #002b55 100%);
     color: rgba(255, 255, 255, 0.82);
@@ -838,7 +820,6 @@ nav ul li a:hover::after {
     color: var(--white);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 992px) {
     .about-wrapper, .contact-wrapper {
         flex-direction: column;
@@ -880,7 +861,6 @@ nav ul li a:hover::after {
     }
 }
 
-/* ===== SPA ROUTING CLASSES ===== */
 .page-section {
     display: block;
     animation: fadeIn 0.4s ease-in-out;
