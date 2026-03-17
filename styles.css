@@ -185,6 +185,15 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+/* active nav item (SPA) */
+#navMenu a.is-active {
+    color: var(--primary-blue);
+}
+
+#navMenu a.is-active::after {
+    width: 100%;
+}
+
 nav ul li a::after {
     content: '';
     position: absolute;
